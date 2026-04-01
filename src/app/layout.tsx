@@ -9,9 +9,9 @@ import {
   Column,
   Flex,
   Meta,
-  opacity,
+  type opacity,
   RevealFx,
-  SpacingToken,
+  type SpacingToken,
 } from "@once-ui-system/core";
 import { Footer, Header, RouteGuard, Providers } from "@/components";
 import { baseURL, effects, fonts, style, dataStyle, home } from "@/resources";
@@ -47,6 +47,7 @@ export default async function RootLayout({
       <head>
         <script
           id="theme-init"
+          // biome-ignore lint/security/noDangerouslySetInnerHtml: <explanation>
           dangerouslySetInnerHTML={{
             __html: `
               (function() {
@@ -113,7 +114,7 @@ export default async function RootLayout({
           padding="0"
           horizontal="center"
         >
-          <RevealFx fill position="absolute">
+          <RevealFx fill position="fixed">
             <Background
               mask={{
                 x: effects.mask.x,

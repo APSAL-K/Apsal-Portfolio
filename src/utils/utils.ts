@@ -15,9 +15,18 @@ type Metadata = {
   summary: string;
   image?: string;
   images: string[];
-  tag?: string;
+  tags: string[];
   team: Team[];
   link?: string;
+  live?: string;
+  github?: string;
+  frameworks?: string[];
+  languages?: string[];
+  category?: string;
+  year?: string;
+  badge?: string;
+  duration?: string;
+  type?: string;
 };
 
 import { notFound } from "next/navigation";
@@ -52,9 +61,18 @@ function readMDXFile(filePath: string) {
     summary: data.summary || "",
     image: data.image || "",
     images: data.images || [],
-    tag: data.tag || [],
+    tags: data.tags || (data.tag ? [data.tag] : []),
     team: data.team || [],
     link: data.link || "",
+    live: data.live || "",
+    github: data.github || "",
+    frameworks: data.frameworks || [],
+    languages: data.languages || [],
+    category: data.category || "",
+    year: data.year || "",
+    badge: data.badge || "",
+    duration: data.duration || "",
+    type: data.type || "",
   };
 
   return { metadata, content };

@@ -101,7 +101,8 @@ export default function About() {
             {person.languages && person.languages.length > 0 && (
               <Row wrap gap="8">
                 {person.languages.map((language, index) => (
-                  <Tag key={index} size="l">
+                  // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+<Tag key={index} size="l">
                     {language}
                   </Tag>
                 ))}
@@ -208,10 +209,15 @@ export default function About() {
               <Column fillWidth gap="l" marginBottom="40">
                 {about.work.experiences.map((experience, index) => (
                   <Column key={`${experience.company}-${experience.role}-${index}`} fillWidth>
-                    <Row fillWidth horizontal="between" vertical="end" marginBottom="4">
-                      <Text id={experience.company} variant="heading-strong-l">
-                        {experience.company}
-                      </Text>
+                    <Row fillWidth horizontal="between" vertical="center" marginBottom="s">
+                      <Row gap="12" vertical="center">
+                        {experience.logo && (
+                          <Avatar size="s" src={experience.logo} />
+                        )}
+                        <Text id={experience.company} variant="heading-strong-l">
+                          {experience.company}
+                        </Text>
+                      </Row>
                       <Text variant="heading-default-xs" onBackground="neutral-weak">
                         {experience.timeframe}
                       </Text>
@@ -236,6 +242,7 @@ export default function About() {
                       <Row fillWidth paddingTop="m" paddingLeft="40" gap="12" wrap>
                         {experience.images.map((image, index) => (
                           <Row
+                            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                             key={index}
                             border="neutral-medium"
                             radius="m"
@@ -291,7 +298,8 @@ export default function About() {
               </Heading>
               <Column fillWidth gap="l">
                 {about.technical.skills.map((skill, index) => (
-                  <Column key={`${skill}-${index}`} fillWidth gap="4">
+                  <Column key={`${skill}-${// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+index}`} fillWidth gap="4">
                     <Text id={skill.title} variant="heading-strong-l">
                       {skill.title}
                     </Text>
@@ -311,6 +319,7 @@ export default function About() {
                       <Row fillWidth paddingTop="m" gap="12" wrap>
                         {skill.images.map((image, index) => (
                           <Row
+                            // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
                             key={index}
                             border="neutral-medium"
                             radius="m"

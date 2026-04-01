@@ -29,6 +29,8 @@ export async function generateMetadata() {
 }
 
 export default function Home() {
+  const allProjects = getPosts(["src", "app", "work", "projects"]);
+
   return (
     <Column maxWidth="m" gap="xl" paddingY="12" horizontal="center">
       <Schema
@@ -112,6 +114,7 @@ export default function Home() {
             </Heading>
             <Projects 
               featuredSlugs={home.featuredProjects.projectSlugs}
+              allProjects={allProjects}
             />
           </Column>
         </RevealFx>
@@ -125,7 +128,7 @@ export default function Home() {
 
       {/* Regular Projects Section */}
       <RevealFx translateY="16" delay={0.9}>
-        <Projects range={[1, 1]} />
+        <Projects range={[1, 1]} allProjects={allProjects} />
       </RevealFx>
 
       {routes["/blog"] && (
@@ -149,7 +152,7 @@ export default function Home() {
         </Column>
       )}
       
-      <Projects range={[2]} />
+      <Projects range={[2]} allProjects={allProjects} />
       {/* Professional Section */}
       {home.professional?.display && (
         <RevealFx translateY="16" delay={0.6}>

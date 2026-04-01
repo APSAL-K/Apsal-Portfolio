@@ -142,6 +142,7 @@ const about: About = {
     experiences: [
       {
         company: "DevBee Inc",
+        logo: "/images/Company/devbee-logo.jpg",
         timeframe: "Apr 2024 - Present",
         role: "Front-End Developer",
         achievements: [
@@ -154,6 +155,7 @@ const about: About = {
       },
       {
         company: "DevBee Inc",
+        logo: "/images/Company/devbee-logo.jpg",
         timeframe: "Jan 2024 - March 2024",
         role: "Web Development (Internship)",
         achievements: [
@@ -270,10 +272,16 @@ const work: Work = {
   path: "/work",
   label: "Work",
   title: `Projects – ${person.name}`,
-  description: `Design and dev projects by ${person.name}`,
+  description: "A showcase of innovative solutions, from AI-powered applications to full-stack platforms. Each project represents a unique challenge solved with cutting-edge technology and best practices.",
   // Create new project pages by adding a new .mdx file to app/blog/posts
   // All projects will be listed on the /home and /work routes
 };
+
+export const workStats = [
+  { label: "15+ Projects Completed", value: "15+" },
+  { label: "Multiple Industries", value: "Multiple" },
+  { label: "AI/ML Specialist", value: "AI/ML" },
+];
 
 const gallery: Gallery = {
   path: "/gallery",
